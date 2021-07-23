@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "poetry-tools"
+version = "0.8.0"
+description = "Poetry tools"
+authors = ["Test <example@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+coverage = {version = "^5.5", extras = ["toml"]}
+pytest = "^6.2.2"
+pytest-cov = "^2.11.1"
+pytest-mock = "^3.5.1"
+
+[tool.poetry.dev-dependencies]
+
+[tool.coverage.run]
+branch = true
+omit = ['*/tests/*']
+include = ['*.py']
+
+[tool.coverage.report]
+show_missing = true
+
+[tool.coverage.xml]
+output = '.coverage.xml'
+
+[tool.pytest.ini_options]
+addopts = "-s --cov=poetry_tools/ --cov-report=xml --cov-report=term"
